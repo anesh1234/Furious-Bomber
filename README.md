@@ -4,5 +4,3 @@ Public repo of the hit game "Fox-Game" (name to be updated)
 
 Created by Stian and Anders 
 
-Dette er en prank
-Flere edits 
