@@ -5,48 +5,59 @@ using static UnityEngine.GraphicsBuffer;
 
 public class Movement : MonoBehaviour
 {
+    //Multiplying by Time.deltaTime makes it move 10 meters per second instead of 10 meters per frame
+
+
+    [Header("Propellers")]
+    public Transform propeller1;
+    public Transform propeller2;
+    public Transform propeller3;
+    public Transform propeller4;
+    public float propellerSpeed = 100;
+
+    public Transform model;
     public float forwardVelocity = 10.0f;
-    public float rotationVelocity = 5.0f;
-    public float rotationAngle = 0.0f;
+    [Range(0.0f, 67.5f)]
+    public float rollAngle = 30.0f;
+
+    [Range(0.0f, 90.0f)]
+    public float yawAngle = 10.0f;
+
+    private Vector3 yawVector;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        //yawVector.x = 0;
+        //yawVector.y = 0;
+        //yawVector.z = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
         float movementGiven = Input.GetAxis("Horizontal");
+        //transform.RotateAround(transform.position, Vector3.forward, -80 * movementGiven * Time.deltaTime);
 
-        //  Svinger til venstre
-        if (movementGiven < 0)
-        {
-            transform.RotateAround(transform.position, Vector3.forward, 10 * Time.deltaTime);
-            transform.RotateAround(transform.position, Vector3.left, 10 * Time.deltaTime);
-        }
+        //yawVector.x = 0;
+        //yawVector.y = -80 * movementGiven * Time.deltaTime;
+        //yawVector.z = 0;
 
-        //  Svinger til høyre
-        else if (movementGiven > 0)
-        {
-            transform.RotateAround(transform.position, Vector3.forward, -10 * Time.deltaTime);
-            transform.RotateAround(transform.position, Vector3.right, 10 * Time.deltaTime);
-        }
+        //transform.Rotate(yawVector, Space.World);
 
-        //else
-        //{
-        //    transform.RotateAround(transform.position, Vector3.forward, -10 * Time.deltaTime);
-        //}
+        //model.localEulerAngles = new Vector3(currentPitchAngle, 0, currentRollAngle);
 
-        float translationZ = forwardVelocity;
-        translationZ = translationZ * Time.deltaTime;
+        float translationZ = forwardVelocity * Time.deltaTime;
         transform.Translate(0, 0, translationZ);
-       
+
+        propeller1.localEulerAngles += Vector3.forward * propellerSpeed * Time.deltaTime;
+        propeller2.localEulerAngles += Vector3.forward * propellerSpeed * Time.deltaTime;
+        propeller3.localEulerAngles += Vector3.forward * propellerSpeed * Time.deltaTime;
+        propeller4.localEulerAngles += Vector3.forward * propellerSpeed * Time.deltaTime;
         //float translationX = Input.GetAxis("Horizontal") * forwardVelocity;
 
-        ////Make it move 10 meters per second instead of 10 meters per frame...
-        //translationX *= Time.deltaTime;
+        //...
+        //translationX *= ;
 
 
         //transform.Translate(translationX, 0, 0);
