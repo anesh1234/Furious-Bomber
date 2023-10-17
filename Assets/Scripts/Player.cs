@@ -15,6 +15,10 @@ public class Player : MonoBehaviour
     public Transform propeller4;
     public float propellerSpeed = 1000;
 
+    [Header("Bomb")]
+    public GameObject bombPrefab;
+    public Transform bombDropPoint;
+
     [Header("The Plane")]
     public Transform B24;
     public float forwardVelocity = 100.0f;
@@ -40,6 +44,10 @@ public class Player : MonoBehaviour
         if (movementGiven == 0)
         {
             ResetRoll();
+        }
+        else if (Input.GetKeyDown(KeyCode.Space))
+        {
+            DropBomb();
         }
 
         TransformPlayer(movementGiven);
@@ -105,5 +113,16 @@ public class Player : MonoBehaviour
 
         // Ensure the rotation is exactly the original rotation.
         B24.rotation = transform.rotation;
+    }
+
+    public GameObject DropBomb()
+    {
+        Vector3 rotationVec = Vector3.zero;
+        rotationVec.x = 90;
+
+        GameObject bomb = Instantiate(bombPrefab, bombDropPoint.position, bombDropPoint.rotation);
+        bomb.transform.Rotate(rotationVec, Space.World);
+
+        return bomb;
     }
 }
