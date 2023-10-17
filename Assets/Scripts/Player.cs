@@ -15,15 +15,14 @@ public class Player : MonoBehaviour
     public Transform propeller4;
     public float propellerSpeed = 1000;
 
+    [Header("The Plane")]
     public Transform B24;
     public float forwardVelocity = 100.0f;
     public float directionSmoothing = 0.95f;
-
     public float rollVelocity = 40f;
     public float yawVelocity = 70f;
-
     public float resetSpeed = 2.0f; // Adjust this value to control the reset speed.
-
+    public float maxRollAngle = 67.5f;
     private float rollAngle;
 
     // Start is called before the first frame update
@@ -74,9 +73,10 @@ public class Player : MonoBehaviour
         rollAngle = -movementGiven * rollVelocity * Time.deltaTime;
         rotationVec.z = rollAngle;
 
-        if (Mathf.Abs(B24.transform.localEulerAngles.z) < 67.5f)
+        float currentRollAngle = Mathf.Abs(B24.eulerAngles.z);
+        if (currentRollAngle <= maxRollAngle)
         {
-            B24.transform.Rotate(rotationVec, Space.Self);
+            B24.Rotate(rotationVec, Space.Self);
         }
     }
 
@@ -99,11 +99,11 @@ public class Player : MonoBehaviour
         while (elapsed < 1.0f)
         {
             elapsed += resetSpeed * Time.deltaTime;
-            B24.transform.rotation = Quaternion.Slerp(currentRotation, transform.rotation, elapsed);
+            B24.rotation = Quaternion.Slerp(currentRotation, transform.rotation, elapsed);
             yield return null;
         }
 
         // Ensure the rotation is exactly the original rotation.
-        B24.transform.rotation = transform.rotation;
+        B24.rotation = transform.rotation;
     }
 }
