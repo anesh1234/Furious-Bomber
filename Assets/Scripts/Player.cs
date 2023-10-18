@@ -29,11 +29,6 @@ public class Player : MonoBehaviour
     public float maxRollAngle = 67.5f;
     private float rollAngle;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
 
     // Update is called once per frame
     void Update()
@@ -45,7 +40,7 @@ public class Player : MonoBehaviour
         {
             ResetRoll();
         }
-        else if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             DropBomb();
         }
@@ -81,7 +76,7 @@ public class Player : MonoBehaviour
         rollAngle = -movementGiven * rollVelocity * Time.deltaTime;
         rotationVec.z = rollAngle;
 
-        float currentRollAngle = Mathf.Abs(B24.eulerAngles.z);
+        float currentRollAngle = Mathf.Abs(B24.rotation.z);
         if (currentRollAngle <= maxRollAngle)
         {
             B24.Rotate(rotationVec, Space.Self);
@@ -115,14 +110,11 @@ public class Player : MonoBehaviour
         B24.rotation = transform.rotation;
     }
 
-    public GameObject DropBomb()
+    void DropBomb()
     {
-        Vector3 rotationVec = Vector3.zero;
-        rotationVec.x = 90;
-
         GameObject bomb = Instantiate(bombPrefab, bombDropPoint.position, bombDropPoint.rotation);
-        bomb.transform.Rotate(rotationVec, Space.World);
-
-        return bomb;
+        //Vector3 rotationVec = Vector3.zero;
+        //rotationVec.x = 90;
+        //bomb.transform.Rotate(rotationVec, Space.World);
     }
 }

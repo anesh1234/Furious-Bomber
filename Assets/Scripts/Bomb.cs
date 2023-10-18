@@ -1,38 +1,33 @@
+using System;
 using UnityEngine;
 
 public class Bomb : MonoBehaviour
 {
-
-    public float gravity = 9.81f;
-    public Transform Map;
-
-    private float timeSinceDrop;
-    private Vector3 velocity;
-    private bool bombHasLanded = false;
+    public Transform[] explosionArray;
 
 
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
-        
+        Vector3 rotationVec = Vector3.zero;
+        rotationVec.x = 90;
+        transform.Rotate(rotationVec, Space.World);
     }
 
     // Update is called once per frame
     void Update()
     {
-        timeSinceDrop += Time.deltaTime;
 
-        velocity -= transform.up * gravity * Time.deltaTime;
+    }
 
-        float currentHeight = transform.position.magnitude;
+    private void OnCollisionEnter(Collision collision)
+    {
+        ContactPoint contact = collision.GetContact(0);
+        Quaternion rotation = Quaternion.FromToRotation(Vector3.up, contact.normal);
+        Vector3 position = contact.point;
 
-        if (currentHeight <= Map.eulerAngles.y)
-        {
-            bombHasLanded = true;
-        }
-        else
-        {
-            transform.position += velocity * Time.deltaTime;
-        }
+        Transform element = explosionArray[UnityEngine.Random.Range(0, explosionArray.Length)];
+        Instantiate(element, position, rotation);
+
+        Destroy(gameObject);
     }
 }
