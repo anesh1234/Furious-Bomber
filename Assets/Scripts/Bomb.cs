@@ -8,9 +8,7 @@ public class Bomb : MonoBehaviour
 
     private void Awake()
     {
-        Vector3 rotationVec = Vector3.zero;
-        rotationVec.x = 90;
-        transform.Rotate(rotationVec, Space.World);
+
     }
 
     // Update is called once per frame
