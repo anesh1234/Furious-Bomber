@@ -76,7 +76,7 @@ public class Player : MonoBehaviour
         rollAngle = -movementGiven * rollVelocity * Time.deltaTime;
         rotationVec.z = rollAngle;
 
-        float currentRollAngle = Mathf.Abs(B24.rotation.z);
+        float currentRollAngle = Mathf.Abs(B24.localEulerAngles.z);
         if (currentRollAngle <= maxRollAngle)
         {
             B24.Rotate(rotationVec, Space.Self);
@@ -113,8 +113,5 @@ public class Player : MonoBehaviour
     void DropBomb()
     {
         GameObject bomb = Instantiate(bombPrefab, bombDropPoint.position, bombDropPoint.rotation);
-        //Vector3 rotationVec = Vector3.zero;
-        //rotationVec.x = 90;
-        //bomb.transform.Rotate(rotationVec, Space.World);
     }
 }
