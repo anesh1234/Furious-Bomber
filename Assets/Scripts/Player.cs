@@ -15,9 +15,10 @@ public class Player : MonoBehaviour
     public Transform propeller4;
     public float propellerSpeed = 1000;
 
-    [Header("Bomb")]
+    [Header("Bombs")]
     public GameObject bombPrefab;
     public Transform bombDropPoint;
+    public int ammunition = 5;
 
     [Header("The Plane")]
     public Transform B24;
@@ -112,6 +113,10 @@ public class Player : MonoBehaviour
 
     void DropBomb()
     {
-        GameObject bomb = Instantiate(bombPrefab, bombDropPoint.position, bombDropPoint.rotation);
+        if (ammunition > 0)
+        {
+            GameObject bomb = Instantiate(bombPrefab, bombDropPoint.position, bombDropPoint.rotation);
+            ammunition--;
+        }
     }
 }
