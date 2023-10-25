@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: 9037a0e6fa5ddb444a89a6e1b2cdf185
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - propeller1: {instanceID: 0}
+  - propeller2: {instanceID: 0}
+  - propeller3: {instanceID: 0}
+  - propeller4: {instanceID: 0}
+  - bombPrefab: {fileID: 4077620460662213986, guid: fd3d973f54c49754888e00109175b102,
+      type: 3}
+  - bombDropPoint: {instanceID: 0}
+  - B24: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
