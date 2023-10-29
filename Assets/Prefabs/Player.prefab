@@ -54,7 +54,7 @@ MonoBehaviour:
   bombPrefab: {fileID: 1229903933290415710, guid: 2657e3bfde0821d48b5186c64ec12f24,
     type: 3}
   bombDropPoint: {fileID: 8068721438273275759}
-  ammunition: 5
+  ammunition: 10
   B24: {fileID: 7243984656509386863}
   forwardVelocity: 60
   directionSmoothing: 0.95
@@ -74,9 +74,9 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: adad4ef8229956c498d7d244c9d307cd, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.097
+  m_Volume: 0.04
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
