@@ -30,6 +30,16 @@ public class Player : MonoBehaviour
     public float maxRollAngle = 67.5f;
     private float rollAngle;
 
+    [Header("Audio")]
+    public AudioSource audioSource;
+    public AudioClip[] explosionClips;
+
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
 
     // Update is called once per frame
     void Update()
@@ -118,5 +128,11 @@ public class Player : MonoBehaviour
             GameObject bomb = Instantiate(bombPrefab, bombDropPoint.position, bombDropPoint.rotation);
             ammunition--;
         }
+    }
+
+    public void PlayGroundExplosion()
+    {
+        AudioClip clip = explosionClips[UnityEngine.Random.Range(0, explosionClips.Length)];
+        audioSource.PlayOneShot(clip);
     }
 }

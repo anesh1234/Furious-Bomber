@@ -4,15 +4,11 @@ using UnityEngine;
 public class Bomb : MonoBehaviour
 {
     public Transform[] explosionArray;
-    public AudioClip[] explosionSounds;
-    public AudioSource audioSource;
-
-    private AudioClip explosionSound;
-  
-    private void Awake()
+    Player playerObject;
+    
+    void Start()
     {
-        explosionSound = explosionSounds[UnityEngine.Random.Range(0, explosionSounds.Length)];
-        audioSource.clip = explosionSound;
+        playerObject = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
     }
 
     // Update is called once per frame
@@ -30,8 +26,8 @@ public class Bomb : MonoBehaviour
         Transform element = explosionArray[UnityEngine.Random.Range(0, explosionArray.Length)];
         Instantiate(element, position, rotation);
 
-        audioSource.PlayOneShot(explosionSound);
-        
+        playerObject.PlayGroundExplosion();
+
         Destroy(gameObject);
     }
 }
