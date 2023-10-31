@@ -130,7 +130,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explosionArray:
-  - {fileID: 400002, guid: 6890a03af913b874092fbb1e8337747d, type: 3}
   - {fileID: 400006, guid: 93485fd5fc2ccf2439cb3239186f6382, type: 3}
   - {fileID: 400008, guid: 06736895ea0a4ff408d25e6684dce797, type: 3}
   - {fileID: 400002, guid: 3364c97de68d3a147af572d1c71c6455, type: 3}
