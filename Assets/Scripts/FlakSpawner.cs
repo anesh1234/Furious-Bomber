@@ -1,14 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class FlakSpawner : MonoBehaviour
 {
-    public Transform[] flakExplosionArray;
+    public Transform[] smallFlak;
+    public Transform[] mediumFlak;
+    public Transform[] bigFlak;
 
     public float intervalMin;
     public float intervalMax;
     public float startDelay;
+
+    public AudioSource audioSource;
 
     // Timing variables
     private float timeStart;
@@ -33,7 +38,7 @@ public class FlakSpawner : MonoBehaviour
     {
         timeStart = Time.time;
         playerObject = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
-
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -74,19 +79,35 @@ public class FlakSpawner : MonoBehaviour
                 float spawnPointY = playerPosition.y;
                 float spawnPointZ = (playerPosition.z + lowDamageRadius);
 
+                Vector3 position = new Vector3(spawnPointX, spawnPointY, spawnPointZ);
 
+                Transform element = smallFlak[UnityEngine.Random.Range(0, smallFlak.Length)];
+                Instantiate(element, position, playerObject.transform.rotation);
             }
             else if (level == 2)
             {
+                float spawnPointX = (playerPosition.x + Random.Range(-10, 10));
+                float spawnPointY = playerPosition.y;
+                float spawnPointZ = (playerPosition.z + mediumDamageRadius);
 
+                Vector3 position = new Vector3(spawnPointX, spawnPointY, spawnPointZ);
+
+                Transform element = mediumFlak[UnityEngine.Random.Range(0, mediumFlak.Length)];
+                Instantiate(element, position, playerObject.transform.rotation);
             }
             else if (level == 1)
             {
+                float spawnPointX = (playerPosition.x + Random.Range(-5, 5));
+                float spawnPointY = playerPosition.y;
+                float spawnPointZ = (playerPosition.z + highDamageRadius);
 
+                Vector3 position = new Vector3(spawnPointX, spawnPointY, spawnPointZ);
+
+                Transform element = bigFlak[UnityEngine.Random.Range(0, bigFlak.Length)];
+                Instantiate(element, position, playerObject.transform.rotation);
             }
 
             lastTime = Time.time;
         }
-        
     }
 }
