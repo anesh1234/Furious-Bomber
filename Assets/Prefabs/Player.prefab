@@ -57,7 +57,7 @@ MonoBehaviour:
   bombDropPoint: {fileID: 8068721438273275759}
   ammunition: 10
   B24: {fileID: 7243984656509386863}
-  forwardVelocity: 60
+  forwardVelocity: 40
   directionSmoothing: 0.95
   rollVelocity: 60
   yawVelocity: 60
@@ -69,6 +69,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: b5ef54b4832d9c0418c633a3c59f7c83, type: 3}
   - {fileID: 8300000, guid: 3ef0a2e3344d00f4e9e40aac9eeb2aed, type: 3}
   - {fileID: 8300000, guid: fce6ad729a68a2d42928740ffc6a99c2, type: 3}
+  bombFalling: {fileID: 8300000, guid: b7d1ce3349416304c8de81051b1c1e8d, type: 3}
 --- !u!82 &-5185904083461092995
 AudioSource:
   m_ObjectHideFlags: 0

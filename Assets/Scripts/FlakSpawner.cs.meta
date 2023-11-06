@@ -3,7 +3,8 @@ guid: e58b0a26b267903449306295c5b59cf7
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - flakExplosion: {fileID: 8300000, guid: f5b3e182e604be6458423c08f130f17e, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

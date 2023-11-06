@@ -13,8 +13,6 @@ public class FlakSpawner : MonoBehaviour
     public float intervalMax;
     public float startDelay;
 
-    public AudioSource audioSource;
-
     // Timing variables
     private float timeStart;
     private float currentTime;
@@ -22,6 +20,7 @@ public class FlakSpawner : MonoBehaviour
     private float interval;
 
     Player playerObject;
+    public AudioClip flakExplosion;
 
     // Angles to react to
     private float lowDamageAngleMin = 0f;
@@ -38,7 +37,6 @@ public class FlakSpawner : MonoBehaviour
     {
         timeStart = Time.time;
         playerObject = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
-        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -75,7 +73,7 @@ public class FlakSpawner : MonoBehaviour
 
             if (level == 3)
             {
-                float spawnPointX = (playerPosition.x + Random.Range(-10, 10));
+                float spawnPointX = (playerPosition.x + Random.Range(-20, 20));
                 float spawnPointY = playerPosition.y;
                 float spawnPointZ = (playerPosition.z + lowDamageRadius);
 
@@ -83,10 +81,11 @@ public class FlakSpawner : MonoBehaviour
 
                 Transform element = smallFlak[UnityEngine.Random.Range(0, smallFlak.Length)];
                 Instantiate(element, position, playerObject.transform.rotation);
+                playerObject.PlayAudio(flakExplosion, 1);
             }
             else if (level == 2)
             {
-                float spawnPointX = (playerPosition.x + Random.Range(-10, 10));
+                float spawnPointX = (playerPosition.x + Random.Range(-15, 15));
                 float spawnPointY = playerPosition.y;
                 float spawnPointZ = (playerPosition.z + mediumDamageRadius);
 
@@ -94,10 +93,11 @@ public class FlakSpawner : MonoBehaviour
 
                 Transform element = mediumFlak[UnityEngine.Random.Range(0, mediumFlak.Length)];
                 Instantiate(element, position, playerObject.transform.rotation);
+                playerObject.PlayAudio(flakExplosion, 1.5f);
             }
             else if (level == 1)
             {
-                float spawnPointX = (playerPosition.x + Random.Range(-5, 5));
+                float spawnPointX = (playerPosition.x + Random.Range(-10, 10));
                 float spawnPointY = playerPosition.y;
                 float spawnPointZ = (playerPosition.z + highDamageRadius);
 
@@ -105,6 +105,7 @@ public class FlakSpawner : MonoBehaviour
 
                 Transform element = bigFlak[UnityEngine.Random.Range(0, bigFlak.Length)];
                 Instantiate(element, position, playerObject.transform.rotation);
+                playerObject.PlayAudio(flakExplosion, 2);
             }
 
             lastTime = Time.time;

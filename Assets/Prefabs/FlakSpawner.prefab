@@ -59,7 +59,7 @@ MonoBehaviour:
   intervalMin: 1
   intervalMax: 2
   startDelay: 3
-  audioSource: {fileID: 0}
+  flakExplosion: {fileID: 8300000, guid: f5b3e182e604be6458423c08f130f17e, type: 3}
 --- !u!82 &-5221613895177254588
 AudioSource:
   m_ObjectHideFlags: 0

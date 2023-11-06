@@ -33,6 +33,7 @@ public class Player : MonoBehaviour
     [Header("Audio")]
     public AudioSource audioSource;
     public AudioClip[] explosionClips;
+    public AudioClip bombFalling;
 
 
     // Start is called before the first frame update
@@ -40,6 +41,7 @@ public class Player : MonoBehaviour
     {
         audioSource = GetComponent<AudioSource>();
     }
+
 
     // Update is called once per frame
     void Update()
@@ -61,11 +63,13 @@ public class Player : MonoBehaviour
         RotatePropellers();
     }
 
+
     private void ResetRoll()
     {
         StopAllCoroutines(); // Stop any existing roll reset coroutine.
         StartCoroutine(ResetRollCoroutine());
     }
+
 
     void TransformPlayer(float movementGiven)
     {
@@ -80,7 +84,6 @@ public class Player : MonoBehaviour
     }
 
 
-
     void RotateB24(float movementGiven)
     {
         Vector3 rotationVec = Vector3.zero;
@@ -93,7 +96,6 @@ public class Player : MonoBehaviour
             B24.Rotate(rotationVec, Space.Self);
         }
     }
-
 
 
     void RotatePropellers()
@@ -121,13 +123,21 @@ public class Player : MonoBehaviour
         B24.rotation = transform.rotation;
     }
 
+
     void DropBomb()
     {
         if (ammunition > 0)
         {
             GameObject bomb = Instantiate(bombPrefab, bombDropPoint.position, bombDropPoint.rotation);
             ammunition--;
+            audioSource.PlayOneShot(bombFalling, 4);
         }
+    }
+
+
+    public void PlayAudio(AudioClip clip, float volume)
+    {
+        audioSource.PlayOneShot(clip, volume);
     }
 
     public void PlayGroundExplosion()
