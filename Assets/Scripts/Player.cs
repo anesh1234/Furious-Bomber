@@ -35,6 +35,9 @@ public class Player : MonoBehaviour
     public AudioClip[] explosionClips;
     public AudioClip bombFalling;
 
+    [Header("Health")]
+    public float maxHealth;
+    private float currentHealth;
 
     // Start is called before the first frame update
     void Start()
@@ -86,11 +89,11 @@ public class Player : MonoBehaviour
 
     void RotateB24(float movementGiven)
     {
-        Vector3 rotationVec = Vector3.zero;
         rollAngle = -movementGiven * rollVelocity * Time.deltaTime;
-        rotationVec.z = rollAngle;
+        Vector3 rotationVec = new Vector3(0,0,rollAngle);
 
-        float currentRollAngle = Mathf.Abs(B24.localEulerAngles.z);
+        float currentRollAngle = Mathf.Abs(B24.transform.rotation.eulerAngles.z);
+
         if (currentRollAngle <= maxRollAngle)
         {
             B24.Rotate(rotationVec, Space.Self);
@@ -124,7 +127,7 @@ public class Player : MonoBehaviour
     }
 
 
-    void DropBomb()
+    private void DropBomb()
     {
         if (ammunition > 0)
         {
@@ -144,5 +147,20 @@ public class Player : MonoBehaviour
     {
         AudioClip clip = explosionClips[UnityEngine.Random.Range(0, explosionClips.Length)];
         audioSource.PlayOneShot(clip);
+    }
+
+    public void InflictDamage(float damage)
+    {
+        currentHealth -= damage;
+
+        if (currentHealth <= 0)
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    public void AddPoints(float points)
+    {
+
     }
 }

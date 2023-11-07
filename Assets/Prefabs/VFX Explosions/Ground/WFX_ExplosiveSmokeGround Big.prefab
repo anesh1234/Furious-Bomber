@@ -19269,6 +19269,7 @@ GameObject:
   - component: {fileID: 19800008}
   - component: {fileID: 19900008}
   - component: {fileID: 11400000}
+  - component: {fileID: -7929897340180072182}
   m_Layer: 0
   m_Name: WFX_ExplosiveSmokeGround Big
   m_TagString: Untagged
@@ -24117,6 +24118,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   OnlyDeactivate: 0
+--- !u!114 &-7929897340180072182
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb0bf36c9a38d244cbbbd2422fa6b139, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 50
+  damageRadius: 25
 --- !u!1 &100010
 GameObject:
   m_ObjectHideFlags: 0
