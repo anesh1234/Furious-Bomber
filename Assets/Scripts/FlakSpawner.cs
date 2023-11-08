@@ -12,6 +12,7 @@ public class FlakSpawner : MonoBehaviour
     public float intervalMin;
     public float intervalMax;
     public float startDelay;
+    public AudioClip flakExplosion;
 
     // Timing variables
     private float timeStart;
@@ -20,16 +21,16 @@ public class FlakSpawner : MonoBehaviour
     private float interval;
 
     Player playerObject;
-    public AudioClip flakExplosion;
+
 
     // Angles to react to
     private float lowDamageAngleMin = 0f;
-    private float lowDamageAngleMax = 30f;
+    private float lowDamageAngleMax = 50f;
 
-    private float mediumDamageAngleMin = 30.1f;
-    private float mediumDamageAngleMax = 60f;
+    private float mediumDamageAngleMin = 50.1f;
+    private float mediumDamageAngleMax = 90f;
 
-    private float highDamageAngleMin = 60.1f;
+    private float highDamageAngleMin = 90.1f;
 
 
     // Start is called before the first frame update
@@ -54,10 +55,6 @@ public class FlakSpawner : MonoBehaviour
         }
     }
 
-    void RecordTime()
-    {
-
-    }
 
     // low damage area = 3, high damage area = 1
     void FlakExplosion(int level)
@@ -94,6 +91,7 @@ public class FlakSpawner : MonoBehaviour
                 Transform element = mediumFlak[UnityEngine.Random.Range(0, mediumFlak.Length)];
                 Instantiate(element, position, playerObject.transform.rotation);
                 playerObject.PlayAudio(flakExplosion, 1.5f);
+                playerObject.InflictDamage(10);
             }
             else if (level == 1)
             {
@@ -106,6 +104,7 @@ public class FlakSpawner : MonoBehaviour
                 Transform element = bigFlak[UnityEngine.Random.Range(0, bigFlak.Length)];
                 Instantiate(element, position, playerObject.transform.rotation);
                 playerObject.PlayAudio(flakExplosion, 2);
+                playerObject.InflictDamage(30);
             }
 
             lastTime = Time.time;

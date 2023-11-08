@@ -28,7 +28,7 @@ public class Player : MonoBehaviour
     public float yawVelocity = 70f;
     public float resetSpeed = 2.0f; // Adjust this value to control the reset speed.
     public float maxRollAngle = 67.5f;
-    private float rollAngle;
+    
 
     [Header("Audio")]
     public AudioSource audioSource;
@@ -37,33 +37,44 @@ public class Player : MonoBehaviour
 
     [Header("Health")]
     public float maxHealth;
+
+
+    private float rollAngle;
     private float currentHealth;
+    private bool isDead;
+
+
 
     // Start is called before the first frame update
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
+        currentHealth = maxHealth;
+        isDead = false;
     }
 
 
     // Update is called once per frame
     void Update()
     {
-        //Returns 
-        float movementGiven = Input.GetAxis("Horizontal");
-
-        if (movementGiven == 0)
+        if (!isDead)
         {
-            ResetRoll();
-        }
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            DropBomb();
-        }
+            float movementGiven = Input.GetAxis("Horizontal");
 
-        TransformPlayer(movementGiven);
-        RotateB24(movementGiven);
-        RotatePropellers();
+            if (movementGiven == 0)
+            {
+                ResetRoll();
+            }
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                DropBomb();
+            }
+
+            TransformPlayer(movementGiven);
+            RotateB24(movementGiven);
+            RotatePropellers();
+        }
+        else { Death(); }
     }
 
 
@@ -149,17 +160,22 @@ public class Player : MonoBehaviour
         audioSource.PlayOneShot(clip);
     }
 
-    public void InflictDamage(float damage)
+    public void InflictDamage(int damage)
     {
         currentHealth -= damage;
 
         if (currentHealth <= 0)
         {
-            Destroy(gameObject);
+            isDead = true;
         }
     }
 
     public void AddPoints(float points)
+    {
+
+    }
+
+    void Death()
     {
 
     }
