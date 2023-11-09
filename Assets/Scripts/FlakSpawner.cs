@@ -49,9 +49,9 @@ public class FlakSpawner : MonoBehaviour
 
         if ((currentTime - timeStart) > startDelay)
         {
-            if(((playerRotationY < lowDamageAngleMax) && (playerRotationY > lowDamageAngleMin)) && ((playerRotationY < 360 - lowDamageAngleMax) && (playerRotationY > 360 - lowDamageAngleMin))) { FlakExplosion(3); }
-            else if (((playerRotationY < mediumDamageAngleMax) && (playerRotationY > mediumDamageAngleMin)) && ((playerRotationY < 360 - mediumDamageAngleMax) && (playerRotationY > 360 - mediumDamageAngleMin))) { FlakExplosion(2); }
-            else if (playerRotationY > highDamageAngleMin && playerRotationY < 360 - highDamageAngleMin) { FlakExplosion(1); }
+            if(((playerRotationY < lowDamageAngleMax) && (playerRotationY > lowDamageAngleMin)) || ((playerRotationY > 360 - lowDamageAngleMax) && (playerRotationY < 360 - lowDamageAngleMin))) { FlakExplosion(3); }
+            else if (((playerRotationY < mediumDamageAngleMax) && (playerRotationY > mediumDamageAngleMin)) || ((playerRotationY > 360 - mediumDamageAngleMax) && (playerRotationY < 360 - mediumDamageAngleMin))) { FlakExplosion(2); }
+            else if (playerRotationY > highDamageAngleMin || playerRotationY < 360 - highDamageAngleMin) { FlakExplosion(1); }
         }
     }
 

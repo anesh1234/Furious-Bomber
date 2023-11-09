@@ -1068,6 +1068,16 @@ PrefabInstance:
       propertyPath: maxHealth
       value: 10000
       objectReference: {fileID: 0}
+    - target: {fileID: 7475488065684037853, guid: e8124a3858089db4882bd4f3f1a39eae,
+        type: 3}
+      propertyPath: rollVelocity
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 8416349703213464320, guid: e8124a3858089db4882bd4f3f1a39eae,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
