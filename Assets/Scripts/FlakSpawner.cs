@@ -45,13 +45,13 @@ public class FlakSpawner : MonoBehaviour
     {
         interval = Random.Range(intervalMin, intervalMax);
         currentTime = Time.time;
-        float playerRotationY = Mathf.Abs(playerObject.transform.rotation.eulerAngles.y);
+        float playerRotationY = playerObject.transform.rotation.eulerAngles.y;
 
         if ((currentTime - timeStart) > startDelay)
         {
-            if((playerRotationY < lowDamageAngleMax) && (playerRotationY > lowDamageAngleMin)) { FlakExplosion(3); }
-            else if ((playerRotationY < mediumDamageAngleMax) && (playerRotationY > mediumDamageAngleMin)) { FlakExplosion(2); }
-            else if (playerRotationY > highDamageAngleMin) { FlakExplosion(1); }
+            if(((playerRotationY < lowDamageAngleMax) && (playerRotationY > lowDamageAngleMin)) && ((playerRotationY < 360 - lowDamageAngleMax) && (playerRotationY > 360 - lowDamageAngleMin))) { FlakExplosion(3); }
+            else if (((playerRotationY < mediumDamageAngleMax) && (playerRotationY > mediumDamageAngleMin)) && ((playerRotationY < 360 - mediumDamageAngleMax) && (playerRotationY > 360 - mediumDamageAngleMin))) { FlakExplosion(2); }
+            else if (playerRotationY > highDamageAngleMin && playerRotationY < 360 - highDamageAngleMin) { FlakExplosion(1); }
         }
     }
 

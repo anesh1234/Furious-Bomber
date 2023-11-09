@@ -105,7 +105,7 @@ public class Player : MonoBehaviour
 
         float currentRollAngle = Mathf.Abs(B24.transform.rotation.eulerAngles.z);
 
-        if (currentRollAngle <= maxRollAngle)
+        if (currentRollAngle <= maxRollAngle || currentRollAngle >= 360 - maxRollAngle)
         {
             B24.Rotate(rotationVec, Space.Self);
         }

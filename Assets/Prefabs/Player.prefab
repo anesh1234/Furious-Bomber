@@ -55,7 +55,7 @@ MonoBehaviour:
   bombPrefab: {fileID: 1229903933290415710, guid: 2657e3bfde0821d48b5186c64ec12f24,
     type: 3}
   bombDropPoint: {fileID: 8068721438273275759}
-  ammunition: 10
+  ammunition: 50
   B24: {fileID: 7243984656509386863}
   forwardVelocity: 40
   directionSmoothing: 0.95
