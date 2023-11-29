@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: heavy_equipment_factory_mobile
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 6ee056263f67ef545b373060986c8beb, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 6ee056263f67ef545b373060986c8beb, type: 3}
       propertyPath: m_LocalScale.x
       value: 10

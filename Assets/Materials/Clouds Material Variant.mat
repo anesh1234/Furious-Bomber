@@ -7,14 +7,14 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Clouds Material
+  m_Name: Clouds Material Variant
   m_Shader: {fileID: -6465566751694194690, guid: 5511a2d48644fa44694ef68c38dc5230,
     type: 3}
-  m_Parent: {fileID: 0}
-  m_ModifiedSerializedProperties: 0
+  m_Parent: {fileID: 2100000, guid: 4537f85f5ae315a4ca259003a885f1dd, type: 2}
+  m_ModifiedSerializedProperties: 2
   m_ValidKeywords: []
   m_InvalidKeywords: []
-  m_LightmapFlags: 0
+  m_LightmapFlags: 2
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
@@ -23,32 +23,13 @@ Material:
   m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
-    m_TexEnvs:
-    - unity_Lightmaps:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - unity_LightmapsInd:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - unity_ShadowMasks:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
+    m_TexEnvs: []
     m_Ints: []
     m_Floats:
-    - _CloudAlpha: 1
-    - _CloudsPower: 1
-    - _CloudsScale: 100
-    - _QueueControl: 0
-    - _QueueOffset: 0
-    m_Colors:
-    - _CloudColor: {r: 1, g: 1, b: 1, a: 1}
-    - _CloudSpeed: {r: 0.002, g: 0.005, b: 0, a: 0}
-    - _Cloud_UnderColor: {r: 1, g: 1, b: 1, a: 0}
+    - _CloudsPower: 1.7
+    m_Colors: []
   m_BuildTextureStacks: []
---- !u!114 &2967724611371723203
+--- !u!114 &2414720443152758205
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}

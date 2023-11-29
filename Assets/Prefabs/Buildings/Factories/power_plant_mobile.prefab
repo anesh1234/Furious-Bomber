@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: power_plant_mobile
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: dd4098679fe9429489b8f8688848b0b1, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: dd4098679fe9429489b8f8688848b0b1, type: 3}
       propertyPath: m_LocalScale.x
       value: 10

@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: house_3_mobile
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: c0916b26f8d215144a12ba633c106f7c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: c0916b26f8d215144a12ba633c106f7c, type: 3}
       propertyPath: m_LocalScale.x
       value: 10
