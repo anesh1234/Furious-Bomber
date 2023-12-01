@@ -1,0 +1,5 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <ui:VisualElement name="AmmunitionAndHealth" style="flex-grow: 1; left: 0; top: 85%; bottom: 0; right: 0; position: absolute;">
+        <ui:TextField picking-mode="Ignore" label="Ammunition:" value="filler text" name="AmmunitionText" is-delayed="false" style="left: 0; position: absolute; bottom: 0; top: 0; right: 1402px; -unity-font: url(&apos;project://database/Assets/Text/Erika%20Ormig.ttf?fileID=12800000&amp;guid=b36c2886e690947449a394d3ae2cd79f&amp;type=3#Erika Ormig&apos;); -unity-font-style: normal; -unity-font-definition: initial; font-size: 43px;" />
+    </ui:VisualElement>
+</ui:UXML>
