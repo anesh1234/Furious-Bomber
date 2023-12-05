@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7475488065684037853}
   - component: {fileID: -5185904083461092995}
   - component: {fileID: 1772393740549375110}
+  - component: {fileID: -6807442044540193829}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -32,6 +33,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 8068721438273275759}
   - {fileID: 7243984656509386863}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -263,6 +265,27 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!65 &-6807442044540193829
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1220665551189006499}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1371557617741415353
 GameObject:
   m_ObjectHideFlags: 0
@@ -869,11 +892,11 @@ Transform:
   m_GameObject: {fileID: 4663913334220012798}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.4, z: -1.68}
+  m_LocalPosition: {x: -0.8991089, y: 3.517807, z: -1.68}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 7243984656509386863}
+  m_Father: {fileID: 5018550052566444067}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5499249007378815352
 GameObject:
@@ -1478,9 +1501,10 @@ GameObject:
   - component: {fileID: 7243984656509386863}
   - component: {fileID: 5992063766061141962}
   - component: {fileID: 8416349703213464320}
+  - component: {fileID: 2699438791181293928}
   m_Layer: 0
   m_Name: B24
-  m_TagString: Untagged
+  m_TagString: B24
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1505,7 +1529,6 @@ Transform:
   - {fileID: 146514487492975254}
   - {fileID: 3073452302772483165}
   - {fileID: 7827347611539643389}
-  - {fileID: 8068721438273275759}
   m_Father: {fileID: 5018550052566444067}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &5992063766061141962
@@ -1560,6 +1583,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &2699438791181293928
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8055845747937974997}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 21.74, y: 4.88, z: 13.77}
+  m_Center: {x: 0, y: 0.0036928058, z: -1.9740412}
 --- !u!1 &8406403955487298279
 GameObject:
   m_ObjectHideFlags: 0

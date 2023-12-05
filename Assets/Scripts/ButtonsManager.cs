@@ -1,13 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 
 public class ButtonsManager : MonoBehaviour
 {
-
-    public void BackArrow()
+    public TextMeshProUGUI text;
+    public void Clicked()
     {
-        this.gameObject.SetActive(false);
+        text.color = Color.red;
     }
 }

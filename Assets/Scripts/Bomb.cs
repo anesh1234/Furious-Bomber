@@ -19,15 +19,18 @@ public class Bomb : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        ContactPoint contact = collision.GetContact(0);
-        Quaternion rotation = Quaternion.FromToRotation(Vector3.up, contact.normal);
-        Vector3 position = contact.point;
+        if (!(collision.gameObject.tag == "B24" || collision.gameObject.tag == "Bomb"))
+        {
+            ContactPoint contact = collision.GetContact(0);
+            Quaternion rotation = Quaternion.FromToRotation(Vector3.up, contact.normal);
+            Vector3 position = contact.point;
 
-        Transform element = explosionArray[UnityEngine.Random.Range(0, explosionArray.Length)];
-        Instantiate(element, position, rotation);
+            Transform element = explosionArray[UnityEngine.Random.Range(0, explosionArray.Length)];
+            Instantiate(element, position, rotation);
 
-        playerObject.PlayGroundExplosion();
+            playerObject.PlayGroundExplosion();
 
-        Destroy(gameObject);
+            Destroy(gameObject);
+        }
     }
 }
