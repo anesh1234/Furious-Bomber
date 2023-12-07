@@ -234,8 +234,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1187360374}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -849,10 +849,10 @@ MonoBehaviour:
   m_FillRect: {fileID: 910433854}
   m_HandleRect: {fileID: 47789061}
   m_Direction: 0
-  m_MinValue: -80
-  m_MaxValue: 0
+  m_MinValue: 0.001
+  m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -899,7 +899,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 162756047}
+  - {fileID: 790909714}
   m_Father: {fileID: 225140115}
   m_LocalEulerAnglesHint: {x: 8.68, y: -59.645, z: -0.347}
   m_AnchorMin: {x: 0, y: 0}
@@ -1123,7 +1123,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &448988944
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1159,6 +1159,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LoadingScreen: {fileID: 0}
+  mainCamera: {fileID: 0}
 --- !u!114 &448988946
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1198,7 +1199,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!223 &448988948
 Canvas:
   m_ObjectHideFlags: 0
@@ -1234,6 +1235,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b3e428d7552cb545828bfabce6359d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioMixer: {fileID: 24100000, guid: db5a496e2ec30c449a2a142ac8a21b9a, type: 2}
 --- !u!1 &459288949
 GameObject:
   m_ObjectHideFlags: 0
@@ -2394,7 +2396,7 @@ RectTransform:
   m_Father: {fileID: 784021043}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -5067,7 +5069,8 @@ AudioSource:
   m_GameObject: {fileID: 1933164030}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: db5a496e2ec30c449a2a142ac8a21b9a,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: 28f20a3bf080b2c48bbc2aa716584bdb, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.14

@@ -9799,6 +9799,12 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -5221613895177254588, guid: d3bb09fe38bfbf04e8ed210624874053,
+        type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 24300002, guid: db5a496e2ec30c449a2a142ac8a21b9a,
+        type: 2}
     - target: {fileID: 3575954234488729508, guid: d3bb09fe38bfbf04e8ed210624874053,
         type: 3}
       propertyPath: m_Name
@@ -9872,6 +9878,12 @@ PrefabInstance:
       propertyPath: rolloffMode
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -5185904083461092995, guid: e8124a3858089db4882bd4f3f1a39eae,
+        type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 24300002, guid: db5a496e2ec30c449a2a142ac8a21b9a,
+        type: 2}
     - target: {fileID: 684689540268749363, guid: e8124a3858089db4882bd4f3f1a39eae,
         type: 3}
       propertyPath: m_CastShadows
@@ -9892,6 +9904,12 @@ PrefabInstance:
       propertyPath: m_CastShadows
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1772393740549375110, guid: e8124a3858089db4882bd4f3f1a39eae,
+        type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 24300002, guid: db5a496e2ec30c449a2a142ac8a21b9a,
+        type: 2}
     - target: {fileID: 1948814940549634579, guid: e8124a3858089db4882bd4f3f1a39eae,
         type: 3}
       propertyPath: m_CastShadows
