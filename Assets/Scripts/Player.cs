@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -18,7 +20,6 @@ public class Player : MonoBehaviour
     [Header("Bombs")]
     public GameObject bombPrefab;
     public Transform bombDropPoint;
-    public int ammunition = 5;
 
     [Header("The Plane")]
     public Transform B24;
@@ -35,9 +36,11 @@ public class Player : MonoBehaviour
     public AudioClip[] explosionClips;
     public AudioClip bombFalling;
 
-    [Header("Health")]
+    [Header("Health & Ammo")]
     public float maxHealth;
-
+    public int ammunition;
+    public Image healthBar;
+    public TextMeshProUGUI ammoField;
 
     private float rollAngle;
     private float currentHealth;
@@ -50,6 +53,7 @@ public class Player : MonoBehaviour
     {
         audioSource = GetComponent<AudioSource>();
         currentHealth = maxHealth;
+        ammoField.text = ammunition.ToString();
         isDead = false;
     }
 
@@ -144,6 +148,7 @@ public class Player : MonoBehaviour
         {
             GameObject bomb = Instantiate(bombPrefab, bombDropPoint.position, bombDropPoint.rotation);
             ammunition--;
+            ammoField.text = ammunition.ToString();
             audioSource.PlayOneShot(bombFalling, 4);
         }
     }
@@ -163,6 +168,7 @@ public class Player : MonoBehaviour
     public void InflictDamage(int damage)
     {
         currentHealth -= damage;
+        healthBar.fillAmount = currentHealth / 100;
 
         if (currentHealth <= 0)
         {

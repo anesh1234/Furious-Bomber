@@ -24,7 +24,6 @@ public class FlakSpawner : MonoBehaviour
 
 
     // Angles to react to
-    private float lowDamageAngleMin = 0f;
     private float lowDamageAngleMax = 50f;
 
     private float mediumDamageAngleMin = 50.1f;
@@ -49,9 +48,9 @@ public class FlakSpawner : MonoBehaviour
 
         if ((currentTime - timeStart) > startDelay)
         {
-            if(((playerRotationY < lowDamageAngleMax) && (playerRotationY > lowDamageAngleMin)) || ((playerRotationY > 360 - lowDamageAngleMax) && (playerRotationY < 360 - lowDamageAngleMin))) { FlakExplosion(3); }
+            if ((playerRotationY < lowDamageAngleMax) || (playerRotationY > 360 - lowDamageAngleMax)) { FlakExplosion(3); }
             else if (((playerRotationY < mediumDamageAngleMax) && (playerRotationY > mediumDamageAngleMin)) || ((playerRotationY > 360 - mediumDamageAngleMax) && (playerRotationY < 360 - mediumDamageAngleMin))) { FlakExplosion(2); }
-            else if (playerRotationY > highDamageAngleMin || playerRotationY < 360 - highDamageAngleMin) { FlakExplosion(1); }
+            else if ((playerRotationY > highDamageAngleMin && playerRotationY < 270) || (playerRotationY < 360 - highDamageAngleMin && playerRotationY > 90)) { FlakExplosion(1); }
         }
     }
 
@@ -107,7 +106,7 @@ public class FlakSpawner : MonoBehaviour
                 playerObject.InflictDamage(30);
             }
 
-            lastTime = Time.time;
+            lastTime = Time.realtimeSinceStartup;
         }
     }
 }
