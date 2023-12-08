@@ -75,6 +75,8 @@ MonoBehaviour:
   healthBar: {fileID: 0}
   ammoField: {fileID: 0}
   points: 0
+  mapEndZcoordinate: 0
+  playerReachedEnd: {fileID: 11400000, guid: b6416215172cfb444886749f3b156f47, type: 2}
 --- !u!82 &-5185904083461092995
 AudioSource:
   m_ObjectHideFlags: 0

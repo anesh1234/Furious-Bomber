@@ -13,24 +13,31 @@ public class GameEvent : ScriptableObject
     public void Raise()
     {
         Raise(null, null);
+        Debug.Log("Raise(null, null)");
     }
 
     public void Raise(object data)
     {
-        Raise(null, data);
+        for (int i = listeners.Count - 1; i >= 0; i--)
+        {
+            listeners[i].OnEventRaised(data);
+        }                                              /////////////////
+        Debug.Log("Entered correct");
     }
 
     public void Raise(Component sender)
     {
         Raise(sender, null);
+        Debug.Log("Raise(sender, null)");
     }
 
-    public void Raise(Component sender, object data)
+    public void Raise(Component sender, object data)                        /////////////////////////
     {
         for (int i = listeners.Count - 1; i >= 0; i--)
         {
-            listeners[i].OnEventRaised(sender, data);
+            listeners[i].OnEventRaised(data);
         }
+        Debug.Log("for (int i = listeners.Count - 1; i >= 0; i--)listeners[i].OnEventRaised(data);");
     }
 
     // Manage Listeners

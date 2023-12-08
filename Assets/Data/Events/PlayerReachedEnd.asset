@@ -10,6 +10,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ea0338921fed34f46a23c56d92a96f49, type: 3}
-  m_Name: LevelStartedFromMain
+  m_Name: PlayerReachedEnd
   m_EditorClassIdentifier: 
   listeners: []

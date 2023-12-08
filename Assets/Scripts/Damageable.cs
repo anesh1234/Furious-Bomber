@@ -11,7 +11,7 @@ public class Damageable : MonoBehaviour
     public void Damage(int damage)
     {
         currentHealth -= damage;
-        playerObject.AddPoints(damage);
+        playerObject.AddPoints(damage * 10);
 
         if (currentHealth <= 0)
         {

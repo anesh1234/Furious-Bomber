@@ -18,6 +18,6 @@ public class FollowB24 : MonoBehaviour
 
     void LateUpdate()
     {
-        transform.position = B24.position + offset;
+        if (B24 != null) { transform.position = B24.position + offset; }
     }
 }

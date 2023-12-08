@@ -29,4 +29,9 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1;
     }
 
+    public void NextMap()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
 }

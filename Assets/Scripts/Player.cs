@@ -30,7 +30,6 @@ public class Player : MonoBehaviour
     public float resetSpeed = 2.0f; // Adjust this value to control the reset speed.
     public float maxRollAngle = 67.5f;
     
-
     [Header("Audio")]
     public AudioSource audioSource;
     public AudioClip[] explosionClips;
@@ -43,9 +42,30 @@ public class Player : MonoBehaviour
     public TextMeshProUGUI ammoField;
     public int points;
 
+    [Header("Events")]
+    //public GameEvent playerReachedEnd;
+    public GameController controller;
+
+    [Header("Map Bounds")]
+    public float mapEndZ;
+    public int maxBoundPosX;
+    public int maxBoundNegX;
+    public int warnBoundPosX;
+    public int warnBoundNegX;
+
+    [Header("Special Screeens")]
+    public GameObject deathScreen;
+    public GameObject warningScreen;
+    public GameObject playerHud;
+
     private float rollAngle;
     private float currentHealth;
+    private float timeOfDeath;
+
+    // States
     private bool isDead;
+    private bool isFinished;
+    private int oneTime = 0;
 
 
 
@@ -56,13 +76,17 @@ public class Player : MonoBehaviour
         currentHealth = maxHealth;
         ammoField.text = ammunition.ToString();
         isDead = false;
-    }
+        isFinished = false;
+}
 
 
     // Update is called once per frame
     void Update()
     {
-        if (!isDead)
+        // Kan ha 3 tilstander: vanlig, død og ferdig
+        if (isDead) { Death(); }
+        else if (isFinished) { Finished(); }
+        else
         {
             float movementGiven = Input.GetAxis("Horizontal");
 
@@ -78,8 +102,8 @@ public class Player : MonoBehaviour
             TransformPlayer(movementGiven);
             RotateB24(movementGiven);
             RotatePropellers();
+            BoundCheck();
         }
-        else { Death(); }
     }
 
 
@@ -142,7 +166,6 @@ public class Player : MonoBehaviour
         B24.rotation = transform.rotation;
     }
 
-
     private void DropBomb()
     {
         if (ammunition > 0)
@@ -153,7 +176,6 @@ public class Player : MonoBehaviour
             audioSource.PlayOneShot(bombFalling, 4);
         }
     }
-
 
     public void PlayAudio(AudioClip clip, float volume)
     {
@@ -184,6 +206,65 @@ public class Player : MonoBehaviour
 
     void Death()
     {
+        if (oneTime < 1)
+        {
+            StartCoroutine(WaitPostDeath());
+            playerHud.SetActive(false);
+            timeOfDeath = Time.time;
+            oneTime = 1;
+        }
 
+        float translationY = forwardVelocity * Time.deltaTime;
+        transform.Translate(0, -translationY, translationY/2);
+
+        if (B24.rotation.eulerAngles.x < 90)
+        {
+            rollAngle = rollVelocity * Time.deltaTime;
+            Vector3 rotationVec = new Vector3(rollAngle, 0, 0);
+            B24.Rotate(rotationVec, Space.Self);
+        }
+
+        if (Time.time - timeOfDeath >= 5)
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    void Finished()
+    {
+        AudioSource[] audiosources = GetComponents<AudioSource>();
+        for (int i = 0; i < audiosources.Length; i++)
+        {
+            audiosources[i].mute = true;
+        }
+    }
+
+    void BoundCheck()
+    {
+        float xPos = transform.position.x;
+        float zPos = transform.position.z;
+
+        if (zPos >= mapEndZ)
+        {
+            controller.OnPlayerFinished(points);
+            //playerReachedEnd.Raise(points);
+            isFinished = true;
+        }
+        else if (xPos >= maxBoundPosX || xPos <= maxBoundNegX) 
+        { 
+            isDead = true;
+        }
+
+        if (((xPos >= warnBoundPosX) && (xPos < maxBoundPosX)) || ((xPos <= warnBoundNegX) && (xPos > maxBoundNegX))) 
+        { 
+            warningScreen.SetActive(true); 
+        }
+        else { warningScreen.SetActive(false); }
+    }
+
+    private IEnumerator WaitPostDeath()
+    {
+        yield return new WaitForSeconds(3);
+        deathScreen.SetActive(true);
     }
 }

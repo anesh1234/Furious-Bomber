@@ -25,32 +25,38 @@ public class FlakSpawner : MonoBehaviour
 
     // Angles to react to
     private float lowDamageAngleMax = 50f;
-
     private float mediumDamageAngleMin = 50.1f;
     private float mediumDamageAngleMax = 90f;
-
     private float highDamageAngleMin = 90.1f;
 
+    private bool playerFinished;
 
     // Start is called before the first frame update
     void Start()
     {
         timeStart = Time.time;
         playerObject = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+        playerFinished = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        interval = Random.Range(intervalMin, intervalMax);
-        currentTime = Time.time;
-        float playerRotationY = playerObject.transform.rotation.eulerAngles.y;
-
-        if ((currentTime - timeStart) > startDelay)
+        if (playerObject != null) 
         {
-            if ((playerRotationY < lowDamageAngleMax) || (playerRotationY > 360 - lowDamageAngleMax)) { FlakExplosion(3); }
-            else if (((playerRotationY < mediumDamageAngleMax) && (playerRotationY > mediumDamageAngleMin)) || ((playerRotationY > 360 - mediumDamageAngleMax) && (playerRotationY < 360 - mediumDamageAngleMin))) { FlakExplosion(2); }
-            else if ((playerRotationY > highDamageAngleMin && playerRotationY < 270) || (playerRotationY < 360 - highDamageAngleMin && playerRotationY > 90)) { FlakExplosion(1); }
+            if (!playerFinished)
+            {
+                interval = Random.Range(intervalMin, intervalMax);
+                currentTime = Time.time;
+                float playerRotationY = playerObject.transform.rotation.eulerAngles.y;
+
+                if ((currentTime - timeStart) > startDelay)
+                {
+                    if ((playerRotationY < lowDamageAngleMax) || (playerRotationY > 360 - lowDamageAngleMax)) { FlakExplosion(3); }
+                    else if (((playerRotationY < mediumDamageAngleMax) && (playerRotationY > mediumDamageAngleMin)) || ((playerRotationY > 360 - mediumDamageAngleMax) && (playerRotationY < 360 - mediumDamageAngleMin))) { FlakExplosion(2); }
+                    else if ((playerRotationY > highDamageAngleMin && playerRotationY < 270) || (playerRotationY < 360 - highDamageAngleMin && playerRotationY > 90)) { FlakExplosion(1); }
+                }
+            }
         }
     }
 
@@ -108,5 +114,10 @@ public class FlakSpawner : MonoBehaviour
 
             lastTime = Time.realtimeSinceStartup;
         }
+    }
+
+    public void PlayerFinished()
+    {
+        playerFinished = true;
     }
 }
