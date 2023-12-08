@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 87ec9ca01b835bc408e15f1e0ddc40f1
+guid: 68b3da2142d8aaf4eb1d2615b79b4e5c
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable:
@@ -17,7 +17,7 @@ ModelImporter:
     second: //RootNode
   - first:
       43: 4300000
-    second: food_factory_mobile
+    second: industrial_factory_mobile
   - first:
       95: 9500000
     second: //RootNode
@@ -25,7 +25,7 @@ ModelImporter:
   materials:
     materialImportMode: 1
     materialName: 0
-    materialSearch: 1
+    materialSearch: 2
     materialLocation: 0
   animations:
     legacyGenerateAnimations: 4
@@ -66,7 +66,7 @@ ModelImporter:
     nodeNameCollisionStrategy: 0
     fileIdsGeneration: 1
     swapUVChannels: 0
-    generateSecondaryUV: 0
+    generateSecondaryUV: 1
     useFileUnits: 1
     keepQuads: 0
     weldVertices: 1

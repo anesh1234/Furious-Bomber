@@ -13,6 +13,10 @@ PrefabInstance:
       value: house_2_v_9.000
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: ffb768713ac53f14fa04451aa6ae5355, type: 3}
+      propertyPath: m_TagString
+      value: House
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: ffb768713ac53f14fa04451aa6ae5355, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}

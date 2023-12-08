@@ -5,25 +5,10 @@ using UnityEngine;
 public class MenuCamera : MonoBehaviour
 {
     public GameEvent gameEvent;
-    Quaternion finalRotation = new Quaternion(0.0538468696f, -0.569891691f, 0.0319797136f, 0.819329798f);
-    Vector3 finalPosition = new Vector3(9.5f, 3.02999997f, -5.9000001f);
     public float movingSpeed = 0.5f;
 
-    //private bool isLoading;
-    //// Start is called before the first frame update
-    //void Start()
-    //{
-    //    isLoading = false;
-    //}
-
-    //// Update is called once per frame
-    //void Update()
-    //{
-    //    if (isLoading == true)
-    //    {
-    //        MoveCamera();
-    //    }
-    //}
+    private Quaternion finalRotation = new Quaternion(0.0538468696f, -0.569891691f, 0.0319797136f, 0.819329798f);
+    private Vector3 finalPosition = new Vector3(9.5f, 3.02999997f, -5.9000001f);
 
     public void MoveCamera()
     {

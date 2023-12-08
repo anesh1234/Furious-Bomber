@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: dc4a4978b5be1db4fb565cf7c8fb27fd
+guid: bfc99bbf4b91f1c49881150b23562811
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable:
@@ -17,7 +17,7 @@ ModelImporter:
     second: //RootNode
   - first:
       43: 4300000
-    second: house_2_mobile
+    second: guard_mobile
   - first:
       95: 9500000
     second: //RootNode
@@ -66,7 +66,7 @@ ModelImporter:
     nodeNameCollisionStrategy: 0
     fileIdsGeneration: 1
     swapUVChannels: 0
-    generateSecondaryUV: 0
+    generateSecondaryUV: 1
     useFileUnits: 1
     keepQuads: 0
     weldVertices: 1

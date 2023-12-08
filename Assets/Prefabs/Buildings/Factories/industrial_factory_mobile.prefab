@@ -13,6 +13,10 @@ PrefabInstance:
       value: industrial_factory_mobile
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 68b3da2142d8aaf4eb1d2615b79b4e5c, type: 3}
+      propertyPath: m_TagString
+      value: Factory
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 68b3da2142d8aaf4eb1d2615b79b4e5c, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}

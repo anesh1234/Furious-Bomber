@@ -36,11 +36,12 @@ public class Player : MonoBehaviour
     public AudioClip[] explosionClips;
     public AudioClip bombFalling;
 
-    [Header("Health & Ammo")]
+    [Header("Health, Ammo & Points")]
     public float maxHealth;
     public int ammunition;
     public Image healthBar;
     public TextMeshProUGUI ammoField;
+    public int points;
 
     private float rollAngle;
     private float currentHealth;
@@ -176,9 +177,9 @@ public class Player : MonoBehaviour
         }
     }
 
-    public void AddPoints(float points)
+    public void AddPoints(int incomingPoints)
     {
-
+        points += incomingPoints;
     }
 
     void Death()

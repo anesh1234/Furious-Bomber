@@ -13,6 +13,10 @@ PrefabInstance:
       value: house_2_v_8_mobile
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: ef6229a1cd489b743ae1214237d371fd, type: 3}
+      propertyPath: m_TagString
+      value: House
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: ef6229a1cd489b743ae1214237d371fd, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
