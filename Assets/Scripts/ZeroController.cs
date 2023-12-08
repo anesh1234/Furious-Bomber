@@ -20,6 +20,7 @@ namespace Klareh
         public Transform Zero;
 
         public float turnSpeed = .3f;
+        public float maxAngleBeforeTurn = 3f;
         public float forwardVelocity = 100.0f;
         public float directionSmoothing = 0.95f;
         public float rollVelocity = 40f;
@@ -53,19 +54,19 @@ namespace Klareh
             float movementGiven = 0;//currently fly straight forward       Input.GetAxis("Horizontal"); --Controlled by player input
 
             Vector3 pointToB24 = b24.position - Zero.position;
-            Vector3 zeroDirection = Zero.position - Zero.position + Zero.forward * 50;
+            Vector3 zeroDirection = Zero.forward;
 
             Debug.DrawLine(Zero.position, b24.position, Color.red);
-            Debug.DrawLine(Zero.position, Zero.position + Zero.forward * 50, Color.blue);
+            Debug.DrawLine(Zero.position, Zero.position + Zero.forward * 500, Color.blue);
 
             float angle = Vector3.SignedAngle(zeroDirection, pointToB24, Vector3.up);
-            if (angle > 10)
+            if (angle > maxAngleBeforeTurn)
             {
                 // Turn right
                 Debug.Log("Turn right");
                 movementGiven = turnSpeed;
             }
-            else if (angle < -10)
+            else if (angle < -maxAngleBeforeTurn)
             {
                 // Turn left
                 Debug.Log("Turn left");
@@ -129,7 +130,7 @@ namespace Klareh
 
             if (currentRollAngle <= maxRollAngle || currentRollAngle >= 360 - maxRollAngle)
             {
-                Zero.Rotate(rotationVec, Space.Self);
+                //Zero.Rotate(rotationVec, Space.Self);
             }
         }
     }
