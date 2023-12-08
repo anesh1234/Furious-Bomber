@@ -12,11 +12,14 @@ namespace Klareh
     {
         [Header("Animation")]
         public bool Engine;
+
         public bool Wheels;
         private Animator _animator;
 
         [Header("The Plane")]
         public Transform Zero;
+
+        public float turnSpeed = .3f;
         public float forwardVelocity = 100.0f;
         public float directionSmoothing = 0.95f;
         public float rollVelocity = 40f;
@@ -28,65 +31,59 @@ namespace Klareh
         [Header("B24")]
         public Transform b24;
 
-        void Start()
+        private void Start()
         {
             Engine = true;
             Wheels = true;
             _animator = GetComponent<Animator>();
         }
 
-        void Update()
+        private void Update()
         {
             if (Engine)
-            _animator.SetBool("EngineState", true);
+                _animator.SetBool("EngineState", true);
             else
-            _animator.SetBool("EngineState", false);
+                _animator.SetBool("EngineState", false);
 
             if (Wheels)
-            _animator.SetBool("WheelsState", true);
+                _animator.SetBool("WheelsState", true);
             else
-            _animator.SetBool("WheelsState", false);
-
-
-
-
+                _animator.SetBool("WheelsState", false);
 
             float movementGiven = 0;//currently fly straight forward       Input.GetAxis("Horizontal"); --Controlled by player input
 
+            Vector3 pointToB24 = b24.position - Zero.position;
+            Vector3 zeroDirection = Zero.position - Zero.position + Zero.forward * 50;
 
-            // The angle variable now contains the angle between where Zero is looking and b24 on the horizontal plane
             Debug.DrawLine(Zero.position, b24.position, Color.red);
             Debug.DrawLine(Zero.position, Zero.position + Zero.forward * 50, Color.blue);
 
-            Vector3 line1Direction = b24.position - Zero.position;
-            Vector3 line2Direction = Zero.position - Zero.position + Zero.forward * 50;
-
-            float dotProduct = Vector3.Dot(line1Direction.normalized, line2Direction.normalized);
-            float angleInRadians = Mathf.Acos(dotProduct);
-            float angleInDegrees = angleInRadians * Mathf.Rad2Deg;
-
-            Debug.Log("Angle between Zero and b24: " + angleInDegrees);
-
-
-
-
-
-
-
-
-
-
-
+            float angle = Vector3.SignedAngle(zeroDirection, pointToB24, Vector3.up);
+            if (angle > 10)
+            {
+                // Turn right
+                Debug.Log("Turn right");
+                movementGiven = turnSpeed;
+            }
+            else if (angle < -10)
+            {
+                // Turn left
+                Debug.Log("Turn left");
+                movementGiven = -turnSpeed;
+            }
+            else
+            {
+                // No need to turn, already facing B24
+                Debug.Log("No need to turn, already facing B24");
+            }
 
             if (movementGiven == 0)
             {
                 ResetRoll();
             }
 
-
             TransformPlayer(movementGiven);
             RotateZero(movementGiven);
-
         }
 
         private void ResetRoll()
@@ -94,7 +91,6 @@ namespace Klareh
             StopAllCoroutines(); // Stop any existing roll reset coroutine.
             StartCoroutine(ResetRollCoroutine());
         }
-
 
         private IEnumerator ResetRollCoroutine()
         {
@@ -112,8 +108,7 @@ namespace Klareh
             Zero.rotation = transform.rotation;
         }
 
-
-        void TransformPlayer(float movementGiven)
+        private void TransformPlayer(float movementGiven)
         {
             //Translate Player forward
             float translationZ = forwardVelocity * Time.deltaTime;
@@ -125,7 +120,7 @@ namespace Klareh
             transform.Rotate(playerRotation, Space.Self);
         }
 
-        void RotateZero(float movementGiven)
+        private void RotateZero(float movementGiven)
         {
             rollAngle = -movementGiven * rollVelocity * Time.deltaTime;
             Vector3 rotationVec = new Vector3(0, 0, rollAngle);
