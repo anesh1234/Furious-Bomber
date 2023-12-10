@@ -10,6 +10,7 @@ TagManager:
   - Factory
   - House
   - Bridge
+  - Controller
   layers:
   - Default
   - TransparentFX

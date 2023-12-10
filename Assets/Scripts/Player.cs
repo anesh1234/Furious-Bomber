@@ -42,10 +42,6 @@ public class Player : MonoBehaviour
     public TextMeshProUGUI ammoField;
     public int points;
 
-    [Header("Events")]
-    //public GameEvent playerReachedEnd;
-    public GameController controller;
-
     [Header("Map Bounds")]
     public float mapEndZ;
     public int maxBoundPosX;
@@ -61,11 +57,13 @@ public class Player : MonoBehaviour
     private float rollAngle;
     private float currentHealth;
     private float timeOfDeath;
+    public GameController controller;
 
     // States
     private bool isDead;
     private bool isFinished;
     private int oneTime = 0;
+
 
 
 
@@ -77,7 +75,8 @@ public class Player : MonoBehaviour
         ammoField.text = ammunition.ToString();
         isDead = false;
         isFinished = false;
-}
+        points = 0;
+    }
 
 
     // Update is called once per frame
@@ -247,7 +246,7 @@ public class Player : MonoBehaviour
         if (zPos >= mapEndZ)
         {
             controller.OnPlayerFinished(points);
-            //playerReachedEnd.Raise(points);
+
             isFinished = true;
         }
         else if (xPos >= maxBoundPosX || xPos <= maxBoundNegX) 

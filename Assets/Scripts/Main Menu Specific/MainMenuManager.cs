@@ -7,10 +7,13 @@ public class MainMenuManager : MonoBehaviour
     public GameObject LevelSelectMenu;
     public GameObject Manual;
     public GameObject SettingsMenu;
+    public GameObject banner;
+
 
     public void OnClickStart ()
     {
         LevelSelectMenu.SetActive (true);
+        banner.SetActive (false);
     }
 
     public void OnClickManual ()
@@ -20,7 +23,8 @@ public class MainMenuManager : MonoBehaviour
 
     public void OnClickSettings()
     {
-        SettingsMenu.SetActive (true);  
+        SettingsMenu.SetActive (true);
+        banner.SetActive(false);
     }
 
     public void OnClickQuit ()

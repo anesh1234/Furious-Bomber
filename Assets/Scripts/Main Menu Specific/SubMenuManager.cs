@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Reflection;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -6,25 +7,17 @@ public class SubMenuManager : MonoBehaviour
 {
     public GameObject LoadingScreen;
     public MenuCamera mainCamera;
-
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        this.gameObject.SetActive(false);
-    }
+    public GameObject banner;
 
 
     public void OnClickBack()
     {
         this.gameObject.SetActive(false);
+        banner.SetActive(true);
     }
-
 
     public void LoadScene(int sceneId)
     {
-        float currentTime = Time.realtimeSinceStartup;
-
         LoadingScreen.SetActive(true);
         mainCamera.MoveCamera();
         StartCoroutine(LoadSceneCoroutine(sceneId));

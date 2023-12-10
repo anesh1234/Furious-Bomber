@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class PauseMenu : MonoBehaviour
 {
     [SerializeField] GameObject pauseMenu;
+    public GameObject loadingScreen;
 
     public void Paused()
     {
@@ -15,7 +16,8 @@ public class PauseMenu : MonoBehaviour
 
     public void ReturnToMainMenu()
     {
-        SceneManager.LoadScene("Main Menu");
+        loadingScreen.SetActive(true);
+        StartCoroutine(LoadSceneCoroutine("Main Menu"));
         Time.timeScale = 1;
     }
     public void Resume()
@@ -31,7 +33,24 @@ public class PauseMenu : MonoBehaviour
 
     public void NextMap()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        int sceneId = SceneManager.GetActiveScene().buildIndex + 1;
+
+        loadingScreen.SetActive(true);
+        StartCoroutine(LoadSceneCoroutine(sceneId));
     }
 
+
+    private IEnumerator LoadSceneCoroutine(object sceneId)
+    {
+        if (sceneId is int) 
+        {
+            yield return new WaitForSeconds(5);
+            SceneManager.LoadSceneAsync((int)sceneId);
+        }
+        if (sceneId is string) 
+        {
+            yield return new WaitForSeconds(5);
+            SceneManager.LoadSceneAsync((string)sceneId);
+        }
+    }
 }
