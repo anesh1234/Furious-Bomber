@@ -9,7 +9,6 @@ public class SubMenuManager : MonoBehaviour
     public MenuCamera mainCamera;
     public GameObject banner;
 
-
     public void OnClickBack()
     {
         this.gameObject.SetActive(false);

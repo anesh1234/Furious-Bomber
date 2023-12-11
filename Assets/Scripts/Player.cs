@@ -169,7 +169,7 @@ public class Player : MonoBehaviour
     {
         if (ammunition > 0)
         {
-            GameObject bomb = Instantiate(bombPrefab, bombDropPoint.position, bombDropPoint.rotation);
+            Instantiate(bombPrefab, bombDropPoint.position, bombDropPoint.rotation);
             ammunition--;
             ammoField.text = ammunition.ToString();
             audioSource.PlayOneShot(bombFalling, 4);

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18069594, g: 0.22620644, b: 0.3071438, a: 1}
+  m_IndirectSpecularColor: {r: 0.1796702, g: 0.21971475, b: 0.27616674, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2178,7 +2178,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: da3d64f12df99ef47bc1fa1d2f240cc1, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2365,7 +2365,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: ' Berlin'
+  m_text: Berlin
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5847f7b1a856a684c9a738b1970ead88, type: 2}
   m_sharedMaterial: {fileID: -8676764270906449259, guid: 5847f7b1a856a684c9a738b1970ead88,
@@ -2429,7 +2429,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0.78, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -2980,7 +2980,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: da3d64f12df99ef47bc1fa1d2f240cc1, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3231,7 +3231,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: ' Hamburg'
+  m_text: Hamburg
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5847f7b1a856a684c9a738b1970ead88, type: 2}
   m_sharedMaterial: {fileID: -8676764270906449259, guid: 5847f7b1a856a684c9a738b1970ead88,
@@ -3295,7 +3295,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0.78, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -4547,7 +4547,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: ' Dresden'
+  m_text: Dresden
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5847f7b1a856a684c9a738b1970ead88, type: 2}
   m_sharedMaterial: {fileID: -8676764270906449259, guid: 5847f7b1a856a684c9a738b1970ead88,
@@ -4611,7 +4611,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0.78, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -5134,6 +5134,7 @@ GameObject:
   - component: {fileID: 1809892639}
   - component: {fileID: 1809892638}
   - component: {fileID: 1809892641}
+  - component: {fileID: 1809892642}
   m_Layer: 5
   m_Name: Level Select Canvas
   m_TagString: Untagged
@@ -5243,6 +5244,35 @@ MonoBehaviour:
   LoadingScreen: {fileID: 225140114}
   mainCamera: {fileID: 1353491897}
   banner: {fileID: 268876877}
+--- !u!114 &1809892642
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1809892636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 664235266e490b541bda1dba5aee8a5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttons:
+  - {fileID: 1174971904}
+  - {fileID: 758543882}
+  - {fileID: 172696675}
+  sceneNames:
+  - Dresden
+  - Hamburg
+  - Berlin
+  starSprites:
+  - {fileID: 21300000, guid: da3d64f12df99ef47bc1fa1d2f240cc1, type: 3}
+  - {fileID: 21300000, guid: 9aa07597d0db0e242b18c8001b4784f3, type: 3}
+  - {fileID: 21300000, guid: 602ded3fd9b477e4e8f2e5e645d5ba62, type: 3}
+  - {fileID: 21300000, guid: f343c31a9677fe746a063de8b7c2891f, type: 3}
+  starSpriteOutputFields:
+  - {fileID: 1089254643}
+  - {fileID: 759420143}
+  - {fileID: 1875969974}
 --- !u!1001 &1853510852
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5376,7 +5406,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: da3d64f12df99ef47bc1fa1d2f240cc1, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

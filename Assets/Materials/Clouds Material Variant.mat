@@ -26,7 +26,7 @@ Material:
     m_TexEnvs: []
     m_Ints: []
     m_Floats:
-    - _CloudsPower: 1.7
+    - _CloudsPower: 2.75
     m_Colors: []
   m_BuildTextureStacks: []
 --- !u!114 &2414720443152758205
