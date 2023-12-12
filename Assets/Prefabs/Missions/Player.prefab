@@ -75,7 +75,6 @@ MonoBehaviour:
   healthBar: {fileID: 0}
   ammoField: {fileID: 0}
   points: 0
-  controller: {fileID: 0}
   mapEndZ: 0
   maxBoundPosX: 0
   maxBoundNegX: 0
@@ -84,6 +83,10 @@ MonoBehaviour:
   deathScreen: {fileID: 0}
   warningScreen: {fileID: 0}
   playerHud: {fileID: 0}
+  smokePrefab: {fileID: 3326583872257270315, guid: eeb95459f550324468a9cc7237cbf2a1,
+    type: 3}
+  controller: {fileID: 4565494758714581268, guid: a77d39ef903c50441b97f0374298546a,
+    type: 3}
 --- !u!82 &-5185904083461092995
 AudioSource:
   m_ObjectHideFlags: 0

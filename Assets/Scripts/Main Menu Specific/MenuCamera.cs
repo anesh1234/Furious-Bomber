@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class MenuCamera : MonoBehaviour
 {
-    public GameEvent gameEvent;
     public float movingSpeed = 0.5f;
 
     private Quaternion finalRotation = new Quaternion(0.0538468696f, -0.569891691f, 0.0319797136f, 0.819329798f);

@@ -54,6 +54,9 @@ public class Player : MonoBehaviour
     public GameObject warningScreen;
     public GameObject playerHud;
 
+    [Header("On Death")]
+    public GameObject smokePrefab;
+
     private float rollAngle;
     private float currentHealth;
     private float timeOfDeath;
@@ -210,6 +213,15 @@ public class Player : MonoBehaviour
             StartCoroutine(WaitPostDeath());
             playerHud.SetActive(false);
             timeOfDeath = Time.time;
+
+            Instantiate(smokePrefab, B24.transform.position, smokePrefab.transform.rotation, B24.transform);
+
+            //Vector3 zeroVec = new Vector3(0,0,0);
+            //GameObject smoke = Instantiate(smokePrefab, zeroVec, Quaternion.identity);
+            //smoke.transform.parent = B24.transform;
+
+            //Vector3 positionOnPlane = new Vector3(2.31f, 0.433f, 1.382f);
+            //smoke.transform.Translate(positionOnPlane, Space.Self);
             oneTime = 1;
         }
 

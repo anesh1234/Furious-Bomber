@@ -49,10 +49,10 @@ MonoBehaviour:
   starsImageOutput: {fileID: 0}
   scorePercOutput: {fileID: 0}
   starSprites:
-  - {fileID: 21300000, guid: da3d64f12df99ef47bc1fa1d2f240cc1, type: 3}
-  - {fileID: 21300000, guid: 9aa07597d0db0e242b18c8001b4784f3, type: 3}
-  - {fileID: 21300000, guid: 602ded3fd9b477e4e8f2e5e645d5ba62, type: 3}
-  - {fileID: 21300000, guid: f343c31a9677fe746a063de8b7c2891f, type: 3}
+  - {fileID: 21300000, guid: 41b13985c12c52a428f1d80d27dd4244, type: 3}
+  - {fileID: 21300000, guid: 415126628e5f19f488a1ac90d761cc59, type: 3}
+  - {fileID: 21300000, guid: 7fcaa39af7a95604e9d3f05ccc95877d, type: 3}
+  - {fileID: 21300000, guid: 298a142c45b112f4fba2644f5652827d, type: 3}
   nextButton: {fileID: 0}
   flakSpawner: {fileID: 7028582384239392234, guid: d3bb09fe38bfbf04e8ed210624874053,
     type: 3}
