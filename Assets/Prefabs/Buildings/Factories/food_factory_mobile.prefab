@@ -13,6 +13,10 @@ PrefabInstance:
       value: food_factory_mobile
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 87ec9ca01b835bc408e15f1e0ddc40f1, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 87ec9ca01b835bc408e15f1e0ddc40f1, type: 3}
       propertyPath: m_TagString
       value: Factory
       objectReference: {fileID: 0}

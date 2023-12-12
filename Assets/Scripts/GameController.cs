@@ -20,6 +20,8 @@ public class GameController : MonoBehaviour
     private int playerScore;
     private float percOfMax;
     private bool finished;
+    private string sceneScore;
+    private string sceneStars;
 
 
     // Start is called before the first frame update
@@ -83,11 +85,14 @@ public class GameController : MonoBehaviour
     void SavePlayerPrefs()
     {
         string currentSceneName = SceneManager.GetActiveScene().name;
-        string sceneScore = currentSceneName + "score";
-        string sceneStars = currentSceneName + "stars";
+        sceneScore = currentSceneName + "score";
+        sceneStars = currentSceneName + "stars";
 
-        PlayerPrefs.SetFloat(sceneScore, percOfMax);
-        PlayerPrefs.SetInt(sceneStars, starsAwarded);
+        if ( PlayerPrefs.GetFloat(sceneScore, 0) < percOfMax) 
+        {
+            PlayerPrefs.SetFloat(sceneScore, percOfMax);
+            PlayerPrefs.SetInt(sceneStars, starsAwarded);
+        }
     }
 
     void SetPercentage()
@@ -101,7 +106,7 @@ public class GameController : MonoBehaviour
         Sprite sprite = starSprites[starsAwarded];
         starsImageOutput.sprite = sprite;
 
-        if (starsAwarded >= 2)
+        if ( (starsAwarded >= 2) || (PlayerPrefs.GetInt(sceneStars, 0) >= 2) )
         {
             nextButton.interactable = true;
         }

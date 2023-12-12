@@ -93,7 +93,7 @@ public class FlakSpawner : MonoBehaviour
                 Transform element = mediumFlak[UnityEngine.Random.Range(0, mediumFlak.Length)];
                 Instantiate(element, position, playerObject.transform.rotation);
                 playerObject.PlayAudio(flakExplosion, 1.5f);
-                playerObject.InflictDamage(10);
+                playerObject.InflictDamage(5);
             }
             else if (level == 1)
             {
@@ -106,7 +106,7 @@ public class FlakSpawner : MonoBehaviour
                 Transform element = bigFlak[UnityEngine.Random.Range(0, bigFlak.Length)];
                 Instantiate(element, position, playerObject.transform.rotation);
                 playerObject.PlayAudio(flakExplosion, 2);
-                playerObject.InflictDamage(30);
+                playerObject.InflictDamage(25);
             }
 
             lastTime = currentTime;

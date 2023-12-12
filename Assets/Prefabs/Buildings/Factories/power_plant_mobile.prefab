@@ -13,6 +13,10 @@ PrefabInstance:
       value: power_plant_mobile
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: dd4098679fe9429489b8f8688848b0b1, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: dd4098679fe9429489b8f8688848b0b1, type: 3}
       propertyPath: m_TagString
       value: Factory
       objectReference: {fileID: 0}
