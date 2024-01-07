@@ -1,4 +1,4 @@
 # Furious Bomber
 
-Created by Stian and Anders 
+Created by @anesh1234, with additions from @Sanityyy.
 
